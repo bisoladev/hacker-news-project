@@ -47,7 +47,7 @@ const AppProvider = ({ children }) => {
   };
 
   const handlePage = (value) => {
-    console.log(value);
+    dispatch({ type: HANDLE_PAGE, payload: value });
   };
 
   useEffect(() => {
@@ -55,7 +55,9 @@ const AppProvider = ({ children }) => {
   }, [state.query]);
 
   return (
-    <AppContext.Provider value={{ ...state, removeStory, handleSearch, handlePage }}>
+    <AppContext.Provider
+      value={{ ...state, removeStory, handleSearch, handlePage }}
+    >
       {children}
     </AppContext.Provider>
   );
